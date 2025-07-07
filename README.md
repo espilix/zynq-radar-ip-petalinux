@@ -1,4 +1,37 @@
-# **Pulse Radar with Doppler Processing** + **Petalinux**
+# **Pulse Radar System** with **Doppler Processing** + **Petalinux**
+
+The complete pulse radar system includes:
+
+### **Hardware Components:**
+- **Zynq-7010 FPGA** with ARM Cortex-A9 processor
+- **Custom Radar IP** with range/Doppler processing
+- **AXI DMA** for high-speed data transfer
+- **RF frontend** for antenna interface
+
+### **Software Components:**
+- **PetaLinux** embedded Linux distribution
+- **Kernel driver** for radar control
+- **User application** for radar operation
+- **Device tree** integration
+
+### **Key Features:**
+- **Pulse compression** and range processing
+- **MTI filtering** for clutter rejection
+- **Doppler processing** for velocity estimation
+- **CFAR detection** for target detection
+- **Real-time processing** with interrupt handling
+- **Configurable parameters** (PRF, pulse width, threshold)
+
+### **Performance Specifications:**
+- **Range resolution:** ~1.5 meters
+- **Velocity resolution:** ~0.5 m/s
+- **Maximum range:** 15 km
+- **Maximum velocity:** ±200 m/s
+- **Update rate:** Up to 10 kHz PRF
+
+This system provides a complete, production-ready pulse radar implementation suitable for various applications including surveillance, automotive, and meteorological radar systems.
+
+## Block Design
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                           ZYNQ-7010 PULSE RADAR SYSTEM                      │
