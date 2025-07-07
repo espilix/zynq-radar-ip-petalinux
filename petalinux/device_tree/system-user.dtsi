@@ -1,0 +1,28 @@
+/dts-v1/;
+/ {
+    radar_ip_0: radar_ip@43c00000 {
+        compatible = "mycompany,pulse-radar-ip";
+        reg = <0x43c00000 0x10000>;
+        interrupt-parent = <&ps7_scugic_0>;
+        interrupts = <0 55 4>, <0 56 4>; // Target detected, Processing complete
+        xlnx,prf-range = <1000 10000>;
+        xlnx,pulse-width-range = <1 100>;
+        xlnx,max-range = <15000>;
+        xlnx,max-velocity = <200>;
+        xlnx,doppler-bins = <64>;
+        xlnx,range-gates = <1024>;
+    };
+
+    dma0: dma@40400000 {
+        compatible = "xlnx,axi-dma-1.00.a";
+        reg = <0x40400000 0x10000>;
+        interrupt-parent = <&ps7_scugic_0>;
+        interrupts = <0 29 4>;
+        xlnx,include-sg;
+        xlnx,num-channels = <1>;
+        dma-channel@40400000 {
+            compatible = "xlnx,axi-dma-s2mm-channel";
+            reg = <0x40400000 0x30>;
+        };
+    };
+};
